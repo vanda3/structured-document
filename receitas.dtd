@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Trabalho I
+	 Vanda Filipa Bernardo Azevedo
+	 201305778 -->
+	 
+<!ENTITY % tii "
+	id ID #REQUIRED
+	titulo CDATA #REQUIRED
+	intro CDATA #IMPLIED
+	ilustracao CDATA #IMPLIED">
+<!-- Colecção -->
+<!ELEMENT colecao (cabecalho, hierarquia)>
+
+
+<!-- ****** Cabeçalho ****** -->
+<!ELEMENT cabecalho (titulo, resumo?, autor+, data)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT data (#PCDATA | dia | mes | ano)*>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT ano (#PCDATA)>
+<!ELEMENT resumo (#PCDATA)>
+
+<!-- ****** Hierarquia ****** -->
+<!ELEMENT hierarquia (parte+ | seccao+ | receita+)>
+
+<!-- Parte -->
+<!ELEMENT parte (seccao+)>
+<!ATTLIST parte
+	%tii;
+>
+
+<!-- Seccao -->
+<!ELEMENT seccao (subseccao+)>
+<!ATTLIST seccao
+	%tii;
+>
+
+<!-- Subseccao -->
+<!ELEMENT subseccao (receita+)>
+<!ATTLIST subseccao
+	%tii;
+>
+
+<!-- Receita -->
+<!ELEMENT receita (ingrediente+, descricao)>
+<!ATTLIST receita
+  nome CDATA #REQUIRED
+  id ID #IMPLIED
+  categoria CDATA #IMPLIED
+  dificuldade (facil | medio | dificil) #IMPLIED
+  tempo CDATA #IMPLIED
+  custo (barato | medio | caro)  #IMPLIED
+  calorias CDATA #IMPLIED
+  ilustracao CDATA #IMPLIED
+  dose CDATA #IMPLIED
+>
+
+<!-- Ingrediente -->
+<!ELEMENT ingrediente EMPTY>
+<!ATTLIST ingrediente
+  id ID #REQUIRED
+  nome CDATA #REQUIRED
+  quantidade CDATA #REQUIRED
+  unidade CDATA #REQUIRED
+>
+
+<!-- Descrição -->
+<!ELEMENT descricao (#PCDATA | passo | ingrediente_ref | receita_ref)*>
+
+<!-- Passo -->
+<!ELEMENT passo (#PCDATA | ingrediente_ref | receita_ref)*>
+<!ATTLIST passo
+  ilustracao CDATA #IMPLIED
+>
+
+<!-- Referências -->
+<!ELEMENT ingrediente_ref (#PCDATA)>
+<!ATTLIST ingrediente_ref
+  id IDREFS #REQUIRED
+>
+
+<!ELEMENT receita_ref (#PCDATA)>
+<!ATTLIST receita_ref
+  id IDREFS #REQUIRED
+>

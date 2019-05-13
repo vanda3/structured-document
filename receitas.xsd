@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Trabalho I
+	 Vanda Filipa Bernardo Azevedo
+	 201305778 -->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/receitas"
+		xmlns:receitas="http://www.example.org/receitas" elementFormDefault="unqualified">
+
+		<element name="colecao" type="receitas:colecaoType"/>
+		<complexType name="colecaoType">
+			<sequence>
+				<element name="cabecalho" type="receitas:cabecalhoType"/>
+				<element name="hierarquia" type="receitas:hierarquiaType"/>
+			</sequence>
+		</complexType>
+
+		<complexType name="cabecalhoType">
+			<sequence>
+				<element name="titulo" type="string"/>
+				<element name="resumo" type="string" minOccurs="0" maxOccurs="1"/>
+				<element name="autor" type="string" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="data" type="date"/>
+			</sequence>
+		</complexType>
+
+		<complexType name="hierarquiaType">
+			<choice>
+				<element name="parte" type="receitas:parteType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="seccao" type="receitas:seccaoType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="receita" type="receitas:receitaType" minOccurs="1" maxOccurs="unbounded"/>
+			</choice>
+		</complexType>
+
+		<!-- Parte -->
+		<complexType name="parteType">
+			<sequence>
+				<element name="seccao" type="receitas:seccaoType" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="id" type="string" use="required"/>
+			<attribute name="titulo" type="string" use="required"/>
+			<attribute name="intro" type="string" use="optional"/>
+			<attribute name="ilustracao" type="anyURI" use="optional"/>
+		</complexType>
+
+		<!-- Seccao -->
+		<complexType name="seccaoType">
+			<sequence>
+				<element name="subseccao" type="receitas:subseccaoType" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="id" type="string" use="required"/>
+			<attribute name="titulo" type="string" use="required"/>
+			<attribute name="intro" type="string" use="optional"/>
+			<attribute name="ilustracao" type="anyURI" use="optional"/>
+		</complexType>
+
+		<!-- Subseccao -->
+		<complexType name="subseccaoType">
+			<sequence>
+				<element name="receita" type="receitas:receitaType" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="id" type="string" use="required"/>
+			<attribute name="titulo" type="string" use="required"/>
+			<attribute name="intro" type="string" use="optional"/>
+			<attribute name="ilustracao" type="anyURI" use="optional"/>
+		</complexType>
+
+		<!-- Receita -->
+		<simpleType name="dificuldadeOpcoes">
+			<restriction base="string">
+				<pattern value="facil|medio|dificil"/>
+			</restriction>
+		</simpleType>
+
+		<simpleType name="custoOpcoes">
+			<restriction base="string">
+				<pattern value="barato|medio|caro"/>
+			</restriction>
+		</simpleType>
+
+		<complexType name="receitaType">
+			<sequence>
+				<element name="ingrediente" type="receitas:ingredienteType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="descricao" type="receitas:descricaoType"/>
+			</sequence>
+			<attribute name="nome" type="string" use="required"/>
+			<attribute name="id" type="ID" use="optional"/>
+			<attribute name="categoria" type="string" use="optional"/>
+			<attribute name="dificuldade" type="receitas:dificuldadeOpcoes" use="optional"/>
+			<attribute name="tempo" type="integer" use="optional"/>
+			<attribute name="custo" type="receitas:custoOpcoes" use="optional"/>
+			<attribute name="calorias" type="integer" use="optional"/>
+			<attribute name="dose" type="integer" use="optional"/>
+			<attribute name="ilustracao" type="anyURI" use="optional"/>
+		</complexType>
+
+		<!-- Ingrediente -->
+		<complexType name="ingredienteType">
+			<attribute name="id" type="ID" use="required"/>
+			<attribute name="nome" type="string" use="required"/>
+			<attribute name="quantidade" type="integer" use="required"/>
+			<attribute name="unidade" type="string" use="required"/>
+		</complexType>
+
+		<!-- Descricao -->
+		<complexType name="descricaoType" mixed="true">
+			<sequence>
+				<element name="passo" type="receitas:passoType" minOccurs="0"
+ maxOccurs="unbounded"/>
+ 				<element name="ingrediente_ref" type="receitas:ingredienteRefType" minOccurs="0"
+ maxOccurs="unbounded"/>
+ 				<element name="receita_ref" type="receitas:receitaRefType" minOccurs="0"
+ maxOccurs="unbounded"/>
+ 			</sequence>
+		</complexType>
+
+		<!-- Passo -->
+		<complexType name="passoType" mixed="true">
+			<sequence>
+ 				<element name="ingrediente_ref" type="receitas:ingredienteRefType" minOccurs="0"
+ maxOccurs="unbounded"/>
+ 				<element name="receita_ref" type="receitas:receitaRefType" minOccurs="0"
+ maxOccurs="unbounded"/>
+ 			</sequence>
+			<attribute name="ilustracao" type="anyURI" use="optional"/>
+		</complexType>
+		
+		<!-- Referências -->
+		<complexType name="ingredienteRefType" mixed="true">
+			<attribute name="id" type="IDREFS" use="required"/>
+		</complexType>
+		
+		<complexType name="receitaRefType" mixed="true">
+			<attribute name="id" type="IDREFS" use="required"/>
+		</complexType>
+</schema>

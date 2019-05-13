@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="receitas.xsl"?>
+
+<!-- Documento XML para CSS
+	 Vanda Filipa Bernardo Azevedo
+	 201305778 -->
+	 
+<!DOCTYPE receitas SYSTEM "receitas.dtd" >
+<colecao>
+  <cabecalho>
+    <titulo>Livro de Receitas</titulo>
+    <resumo>Receitas simples e económicas para toda a sua família!</resumo>
+    <autor>Maria Silva</autor>
+    <data><dia>31</dia> de <mes>outubro</mes>, <ano>2017</ano></data>
+  </cabecalho>
+
+  <hierarquia>
+    <parte id="p1" titulo="Pratos Carne" intro="Pratos simples e económicos de carne." ilustracao="carnes.jpg">
+      <seccao id="s1" titulo="Carnes Brancas" intro="Seccao dedicada a aves." ilustracao="frango.jpg">
+        <subseccao id="ss1" titulo="Carnes Brancas">
+          <receita nome="Frango Assado" id="fa" categoria="aves" dificuldade="facil" tempo="90" custo="barato">
+            <ingrediente nome="Frango" id="fr" quantidade=" 1" unidade="kg"/>
+            <ingrediente nome="Azeite" id="az" quantidade="1" unidade="colher de sopa"/>
+            <descricao>
+              <passo>Preaqueça o forno a 250º.</passo>
+              <passo>Limpe o <ingrediente_ref id="fr"/> e seque-o.</passo>
+              <passo>Coloque o frango num tabuleiro. Cubra de <ingrediente_ref id="az"/>. Coloque pimenta e sal.</passo>
+              <passo>Leve ao forno e asse-o no forno a 230C por 20 minutos.</passo>
+            </descricao>
+          </receita>
+          <receita nome="Peito de Frango com bechamel" id="pfb" categoria="aves" dificuldade="facil" tempo="60" custo="barato">
+            <ingrediente nome="Peito de Frango" id="pf" quantidade=" 1" unidade="kg"/>
+            <ingrediente nome="Cogumelos laminados" id="cg" quantidade="1" unidade="lata"/>
+            <ingrediente nome="Tagliatelle" id="mas" quantidade="400" unidade="gr"/>
+            <descricao>
+            		Cortam-se os <ingrediente_ref id="pf"/> em cubos. Põe-se ao lume a panela com a agua para cozer a massa 
+            		<ingrediente_ref id="mas"/>. Numa frigideira larga deita-se o azeite, e leva-se ao lume até estar bem quente. Deita-se os cubinhos de frango 
+            		no azeite, mexendo para alourarem. Quando estiverem dourados, regam-se com o sumo de limão. 
+            		Mexe-se bem para envolver. Baixa-se o lume para o mínimo, tempera-se com sal e pimenta a gosto e 
+            		deixa-se ir recozendo. Assim que a agua ferver, deita-se a massa, mexendo bem. A massa deve sempre ser cozida 
+            		com a panela destapada. Junta-se os <ingrediente_ref id="cg"/> ao frango, polvilha-se tudo com a salsa, e mexe-se. 
+            		Rega-se com a massa <receita_ref id="mb"/>, e deixa-se aquecer em lume brando, mexendo de vez em quando. 
+            		Estando a massa cozida, escorre-se. Deita-se para um prato de servir fundo, rega-se com um fio de azeite 
+            		(para a massa não colar), e envolve-se. Por o lume da frigideira no máxima, até ferver o bechamel. 
+            		Rectificar os temperos e servir bem quentinho.
+            </descricao>
+          </receita>
+        </subseccao>
+      </seccao>
+      <seccao id="s2" titulo="Carnes Vermelhas">
+        <subseccao id="ss2" titulo="Carnes Vermelhas">
+          <receita nome="Vitela Estufada" id="ve" categoria="vermelhas" dificuldade="facil" tempo="60" custo="barato">
+            <ingrediente nome="Vitela" id="vi" quantidade="1" unidade="kg"/>
+            <ingrediente nome="Sal" id="sal2" quantidade="1" unidade="colher de cha"/>
+            <ingrediente nome="Pimenta" id="pim2" quantidade="1" unidade="colher de cha"/>
+            <descricao>
+              <passo>Comece por temperar a <ingrediente_ref id="vi"/> com o vinho branco, o pimentão, <ingrediente_ref id="sal2"/>
+               e <ingrediente_ref id="pim2"/>, envolva bem e deixe marinar durante 30 minutos.</passo>
+              <passo>Descasque e lave as cebolas e os dentes de alho e pique-os finamente. Leve um tacho ao lume com o azeite, 
+              	deixe aquecer, junte a vitela e deixe corar de ambos os lados. Adicione a cebola e os dentes de alho e deixe 
+              	refogar, mexendo de vez em quando, até que a cebola fique douradinha.</passo>
+              <passo>Junte então o caldo de cozinha, a folha de louro, um pouco de salsa em rama e um pouco de água e deixe 
+              	estufar durante aproximadamente 35 minutos ou até que a vitela fique cozinhada. Se necessário, junte mais um pouco 
+              	de água, rectifique os temperos e deixe apurar o molho.</passo>
+              <passo>Retire do lume, coloque numa travessa e sirva polvilhado com salsa picada. 
+              	Acompanhe com arroz branco.</passo>
+            </descricao>
+          </receita>
+        </subseccao>
+      </seccao>
+    </parte>
+
+    <parte id="p2" titulo="Molhos">
+      <seccao id="s3" titulo="Molhos para carne">
+        <subseccao id="ss3" titulo="Molhos sem picante">
+          <receita nome="Molho Bechamel" id="mb" categoria="molhos" dificuldade="facil" tempo="5" custo="barato">
+            <ingrediente nome="Farinha" id="far" quantidade="30" unidade="gr"/>
+            <ingrediente nome="Manteiga" id="man" quantidade="30" unidade="gr"/>
+            <ingrediente nome="Leite" id="lei" quantidade="500" unidade="ml"/>
+            <descricao>
+            		Leve a <ingrediente_ref id="man"/> a lume brando e deixe derreter. Junte a <ingrediente_ref id="far"/> com cuidado e desfaça-a na manteiga. 
+            		Acrescente a pouco o pouco o <ingrediente_ref id="lei"/>, mexendo sempre para não criar grumos. Deixe ferver durante uns minutos, 
+            		até engrossar. Temepere com sal, pimenta e noz-moscada.
+            </descricao>
+          </receita>
+        </subseccao>
+      </seccao>
+    </parte>
+  </hierarquia>
+</colecao>

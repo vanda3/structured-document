@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Documento XML para CSS
+	 Vanda Filipa Bernardo Azevedo
+	 201305778 -->
+	 
+<receitas:colecao xmlns:receitas="http://www.example.org/receitas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/receitas receitas.xsd ">
+
+  <cabecalho>
+    <titulo>Livro de Receitas</titulo>
+    <resumo>Receitas simples e economicas para toda a sua familia!</resumo>
+    <autor>Maria Silva</autor>
+    <data>2017-10-31</data>
+  </cabecalho>
+
+  <hierarquia>
+      <seccao id="se1" titulo="Carnes Brancas" intro="Seccao dedicada a carnes." ilustracao="carnes.jpg">
+        <subseccao id="su1" titulo="Carnes Brancas">
+          <receita nome="Frango Assado" id="fa" categoria="aves" dificuldade="facil" tempo="90" custo="barato">
+            <ingrediente nome="Frango inteiro" id="fr" quantidade="2" unidade="kg"/>
+            <ingrediente nome="Sal" id="sal" quantidade="1" unidade="colher de cha"/>
+            <ingrediente nome="Pimenta" id="pim" quantidade="1" unidade="colher de cha"/>
+            <ingrediente nome="Azeite" id="az" quantidade="1" unidade="colher de sopa"/>
+            <descricao>
+              <passo>Preaqueça o forno a 250º.</passo>
+              <passo>Limpe o <ingrediente_ref id="fr"/> e seque-o.</passo>
+              <passo>Coloque o frango num tabuleiro. Cubra de <ingrediente_ref id="az"/> . Coloque <ingrediente_ref id="pim"/>
+              	 e <ingrediente_ref id="sal"/>.</passo>
+              <passo>Leve ao forno e asse-o no forno a 230C por 20 minutos.</passo>
+            </descricao>
+          </receita>
+          <receita nome="Frango Estufado" id="fe" categoria="aves" dificuldade="facil" tempo="60" custo="barato">
+            <ingrediente nome="Frango Assado" id="fr1" quantidade=" 1" unidade="kg"></ingrediente>
+            <ingrediente nome="Sal" id="sal1" quantidade="1" unidade="colher de cha"></ingrediente>
+            <ingrediente nome="Pimenta" id="pim1" quantidade="1" unidade="colher de cha"></ingrediente>
+            <ingrediente nome="Vinho branco" id="vin" quantidade="2" unidade="dl"></ingrediente>
+            <ingrediente nome="Caldo de galinha" id="cg" quantidade="1" unidade="cubo"></ingrediente>
+            <descricao>
+              <passo>Para preparar esta receita de <ingrediente_ref id="fr1"/>, comece por arranjar o frango, corte-o em pedaços, 
+              	tempere-os com o <ingrediente_ref id="vin"/>, <ingrediente_ref id="sal1"/> e <ingrediente_ref id="pim1"/>, 
+              	envolva bem e deixe marinar durante 30 minutos.</passo>
+              <passo>Descasque e lave as cebolas e os dentes de alho e pique-os finamente. Leve um tacho ao lume com o azeite, 
+              	deixe aquecer, junte o frango escorrido e deixe corar de ambos os lados. Adicione a cebola e os dentes de alho e 
+              	deixe refogar, mexendo de vez em quando, até que a cebola fique douradinha.</passo>
+              <passo>Junte então o <ingrediente_ref id="cg"/>, a folha de louro, um pouco de salsa em rama, a marinada do frango e 
+              	um pouco de água e deixe estufar durante aproximadamente 35 minutos ou até que o frango fique cozinhado. 
+              	Se necessário, junte mais um pouco de água, rectifique os temperos e deixe apurar o molho.</passo>
+              <passo>Retire do lume, coloque numa travessa e sirva polvilhado com salsa picada. 
+              	Acompanhe com arroz branco.</passo>
+            </descricao>
+          </receita>
+        </subseccao>
+      </seccao>
+      <seccao id="se2" titulo="Carnes Vermelhas">
+        <subseccao id="su2" titulo="Carnes Vermelhas">
+          <receita nome="Vitela Estufada" id="ve" categoria="vermelhas" dificuldade="facil" tempo="60" custo="barato">
+            <ingrediente nome="Vitela em pedaços" id="vi" quantidade=" 1" unidade="kg"/>
+            <ingrediente nome="Sal" id="sal2" quantidade="1" unidade="colher de cha"/>
+            <ingrediente nome="Pimenta" id="pim2" quantidade="1" unidade="colher de cha"/>
+            <ingrediente nome="Azeite" id="az2" quantidade="1" unidade="colher de sopa"/>
+            <ingrediente nome="Vinho Branco" id="vin2" quantidade="2" unidade="dl"/>
+            <descricao>
+              <passo ilustracao="link.com">Comece por temperar a <ingrediente_ref id="vi"/> com o <ingrediente_ref id="vin2"/>, o pimentão, 
+              <ingrediente_ref id="sal2"/>, e <ingrediente_ref id="pim2"/>, envolva bem e deixe marinar durante 30 minutos.</passo>
+              <passo ilustracao="link2.com">Descasque e lave as cebolas e os dentes de alho e pique-os finamente. 
+              	Leve um tacho ao lume com o <ingrediente_ref id="az2"/>, deixe aquecer, junte a vitela e deixe corar de ambos os lados. 
+              	Adicione a cebola e os <receita_ref id="fa"/> dentes de alho e deixe refogar, mexendo de vez em quando, 
+              	até que a cebola fique douradinha.</passo>
+              <passo ilustracao="link3.com">Junte então o caldo de cozinha, a folha de louro, um pouco de salsa em rama e um 
+              	pouco de água e deixe estufar durante aproximadamente 35 minutos ou até que a vitela fique cozinhada. 
+              	Se necessário, junte mais um pouco de água, rectifique os temperos e deixe apurar o molho.</passo>
+              <passo ilustracao="link4.com">Retire do lume, coloque numa travessa e sirva polvilhado com salsa picada. 
+              	Acompanhe com arroz branco.</passo>
+            </descricao>
+          </receita>
+        </subseccao>
+      </seccao>
+  </hierarquia>
+</receitas:colecao>
